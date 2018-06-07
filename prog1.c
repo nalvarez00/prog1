@@ -41,6 +41,28 @@ int main(){
 	return 0;
 }
 
+void create_threads(){
+    //create thread that will run every 125 ms
+    if (pthread_create(&thread1, NULL, diamonds, NULL)){
+        fprintf(stderr, "Error creating thread1\n");
+        return EXIT_FAILURE;
+    } 
+    //create thread that will run every 250 ms
+    if (pthread_create(&thread2, NULL, clubs, NULL)){
+        fprintf(stderr, "Error creating thread2\n");
+        return EXIT_FAILURE;
+    }
+    //create thread that will run every 500 ms
+    if (pthread_create(&thread3, NULL, hearts, NULL)){
+        fprintf(stderr, "Error creating thread3\n");
+        return EXIT_FAILURE;
+    } 
+    //create thread that will run every 750 ms
+    if (pthread_create(&thread4, NULL, spades, NULL)){
+        fprintf(stderr, "Error creating thread4\n");
+        return EXIT_FAILURE;
+    }
+}
 
 void* diamonds(void* tmp){
 	int i;
