@@ -41,6 +41,25 @@ int main(){
 	return 0;
 }
 
+void join_threads(){
+    if (pthread_join(&thread1, NULL, diamonds, NULL)){
+        fprintf(stderr, "Error joining thread1\n");
+        return EXIT_FAILURE;
+    } 
+    if (pthread_join(&thread2, NULL, clubs, NULL)){
+        fprintf(stderr, "Error joining thread2\n");
+        return EXIT_FAILURE;
+    }
+    if (pthread_join(&thread3, NULL, hearts, NULL)){
+        fprintf(stderr, "Error joining thread3\n");
+        return EXIT_FAILURE;
+    }
+    if (pthread_join(&thread4, NULL, spades, NULL)){
+        fprintf(stderr, "Error joining thread4\n");
+        return EXIT_FAILURE;
+    }
+}
+
 
 void* diamonds(void* tmp){
 	int i;
